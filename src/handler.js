@@ -3,7 +3,7 @@ const {nanoid} = require('nanoid');
 const books = require('./books');
 
 // tambahkan buku
-const addBookHendler = (request, h) => {
+const addBookHandler = (request, h) => {
   const {
     name,
     year,
@@ -85,7 +85,7 @@ const addBookHendler = (request, h) => {
   return response;
 };
 
-const getAllBooksHeandler = () => ({
+const getAllBookHandler = () => ({
   status: 'succes',
   data: {
     books,
@@ -93,7 +93,7 @@ const getAllBooksHeandler = () => ({
 });
 
 // detail buku
-const getBookByHendler = (request, h) => {
+const getBookByHandler = (request, h) => {
   const {id} = request.params;
   const book = books.filter((n) => n.id === id)[0];
 
@@ -114,7 +114,7 @@ const getBookByHendler = (request, h) => {
 };
 
 // edit buku
-const editNodeByHeandler = (request, h) => {
+const editNodeByHandler = (request, h) => {
   const {id} = request.params;
   const {
     name,
@@ -188,7 +188,7 @@ const editNodeByHeandler = (request, h) => {
 };
 
 // delete buku
-const deleteBookByIdHendler = (request, h) => {
+const deleteBookByIdHandler = (request, h) => {
   const {id} = request.params;
   const index = books.findIndex((book) => book.id === id);
 
@@ -210,9 +210,9 @@ const deleteBookByIdHendler = (request, h) => {
 };
 
 module.exports = {
-  addBookHendler,
-  getAllBooksHeandler,
-  getBookByHendler,
-  editNodeByHeandler,
-  deleteBookByIdHendler,
+  addBookHandler,
+  getAllBookHandler,
+  getBookByHandler,
+  editNodeByHandler,
+  deleteBookByIdHandler,
 };
